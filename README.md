@@ -65,9 +65,9 @@ Start the local development server
 
 # Testing
 
-Run the laravel development server
+Run the laravel tests
 
-    php artisan serve
+    vendor/bin/phpunit
 
 The accessed at User to tests
 

@@ -22,7 +22,7 @@ Run the database migrations & seeder (**Set the database connection in .env befo
 
 Generate a new jwt key 
 
-    php artisan jwt:secrete
+    php artisan jwt:secret
 
 Start the local development server
 

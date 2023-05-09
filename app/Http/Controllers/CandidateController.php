@@ -6,18 +6,18 @@ use App\Candidate;
 use App\Http\Requests\Api\Candidate\StoreRequest;
 use App\Http\Resources\CandidateRersource;
 use Exception;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class CandidateController extends Controller
 {
     /**
-     * It creates a new candidate and returns a success response with the candidate resource
+     * It creates a new candidate resource
      *
-     * @param StoreRequest request The request object.
+     * @param StoreRequest $request The request object
      *
-     * @return A new candidate resource
+     * @return JsonResponse candidate resource
      */
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request): JsonResponse
     {
         if($request->user()->cannot('create', Candidate::class)){
             return response()->error('You are not authorized to create a lead', 403);
@@ -43,12 +43,11 @@ class CandidateController extends Controller
     }
 
     /**
-     * It returns a collection of candidates, either all of them or just the ones belonging to the
-     * current user, depending on the user's role
+     * It returns a list of candidate resources
      *
-     * @return A collection of candidates
+     * @return JsonResponse list of candidate resources
      */
-    public function index()
+    public function index(): JsonResponse
     {
         try {
             $this->authorize('viewAny', Candidate::class);
@@ -68,15 +67,15 @@ class CandidateController extends Controller
         }
     }
 
+    
     /**
-     * If the candidate is not found, return a 404 error. If the user is not authorized to view the
-     * candidate, return a 403 error. Otherwise, return the candidate
+     * It returns a candidate resource
      *
-     * @param id The id of the candidate you want to retrieve
+     * @param string $id The candidate id.
      *
-     * @return A candidate resource
+     * @return JsonResponse candidate resource
      */
-    public function show($id)
+    public function show(string $id): JsonResponse
     {
         try {
             $candidate = Candidate::find($id);

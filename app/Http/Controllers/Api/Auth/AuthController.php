@@ -5,10 +5,20 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Auth\LoginRequest;
 use Exception;
+use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request)
+    /**
+     * validates the input, and returns a JSON response with a token and 
+     * expiration time if successful, or an error message if unsuccessful.
+     * 
+     * @param LoginRequest custom request class that validates the incoming login request data. It contains the
+     * username and password fields that are required for authentication.
+     * 
+     * @return JsonResponse This function returns a JSON response. 
+     */
+    public function login(LoginRequest $request): JsonResponse
     {
 
         try {
@@ -30,7 +40,12 @@ class AuthController extends Controller
         }
     }
 
-    public function logout()
+    /**
+     * logs out the user and returns a JSON response with a success message.
+     * 
+     * @return JsonResponse This function returns a JSON response. 
+     */
+    public function logout(): JsonResponse
     {
         try {
             auth()->logout();

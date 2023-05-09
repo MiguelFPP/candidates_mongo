@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "69a80a4f-b6e4-439b-92bb-c112aeeacd86",
+		"_postman_id": "8a794757-ed67-41d3-b3b5-d1da33365aec",
 		"name": "Prueba",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20323341"
@@ -100,6 +100,7 @@
 						{
 							"key": "user_id",
 							"value": "63682c24b9bd8b28b90a1a38",
+							"description": "cambia dependiendo la migracion",
 							"type": "text"
 						}
 					]

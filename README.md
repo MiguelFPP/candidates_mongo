@@ -48,6 +48,8 @@ Start the local development server
 
 - `app` - Contains all the Eloquent models
 - `app/Http/Controllers` - Contains all the controllers
+- `app/policies` - Contain policies permissions
+- `app/providers` - Contain all provider ex(ResponseMacroServiceprovider)
 - `config` - Contains all the application configuration files
 - `database/factories` - Contains the model factory for all the models
 - `database/migrations` - Contains all the database migrations
